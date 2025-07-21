@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YoWorld Inventory</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div id="header">
+      <img src="./yoworld-logo.png" alt="YoWorld Logo" />
+      <h1>YoWorld Inventory</h1>
+    </div>
+
+    <section id="inventory-form">
+      <input type="text" id="item-name" placeholder="Item Name" />
+      <input type="number" id="item-price" placeholder="Price" />
+      <select id="item-type">
+        <option value="furniture">Furniture</option>
+        <option value="clothing">Clothing</option>
+        <option value="misc">Misc</option>
+      </select>
+      <input type="file" id="item-image" accept="image/*" />
+      <input type="text" id="item-notes" placeholder="Notes (optional)" />
+      <button onclick="addItem()">Add Item</button>
+    </section>
+    <section id="search-filter">
+      <input
+        type="text"
+        id="search-box"
+        placeholder="Search by name or notes..."
+      />
+      <select id="filter-type">
+        <option value="all">All Types</option>
+        <option value="furniture">Furniture</option>
+        <option value="clothing">Clothing</option>
+        <option value="misc">Misc</option>
+      </select>
+    </section>
+
+    <section id="inventory-list">
+      <h2>Inventory</h2>
+      <ul id="items"></ul>
+      <div id="summary">
+        <p><strong>Total Items:</strong> <span id="summary-count">0</span></p>
+        <p>
+          <strong>Total Value:</strong> $<span id="summary-total">0.00</span>
+        </p>
+        <p>
+          <strong>Average Price:</strong> $<span id="summary-average"
+            >0.00</span
+          >
+        </p>
+      </div>
+      <div id="backup-controls">
+        <button onclick="exportInventory()">📤 Export</button>
+        <input type="file" id="import-file" accept=".json" />
+        <button onclick="importInventory()">📥 Import</button>
+      </div>
+    </section>
+  </body>
+</html>
